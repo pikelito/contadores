@@ -5,7 +5,11 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
+    "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
+    "format": "prettier --write \"**/*.{js,vue,json,scss,md}\"",
+    "format:check": "prettier --check \"**/*.{js,vue,json,scss,md}\""
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.34.0",

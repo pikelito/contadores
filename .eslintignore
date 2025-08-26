@@ -1,0 +1,8 @@
+.nuxt
+dist
+node_modules
+*.min.js
+*.log
+.git
+.husky
+.vscode
