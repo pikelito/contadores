@@ -11,5 +11,10 @@
     "@nuxtjs/composition-api": "^0.34.0",
     "nuxt": "^2.17.3",
     "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.2",
+    "sass": "^1.91.0",
+    "sass-loader": "^10.5.2"
   }
 }

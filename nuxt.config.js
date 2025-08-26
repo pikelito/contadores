@@ -17,7 +17,17 @@ export default {
   },
 
   components: true,
-  buildModules: ['@nuxtjs/composition-api/module'],
+
+  buildModules: ['@nuxtjs/composition-api/module', '@nuxtjs/style-resources'],
+
+  styleResources: {
+    scss: [
+      '~/assets/scss/abstracts/_variables.scss',
+      '~/assets/scss/abstracts/_mixins.scss',
+    ],
+  },
+
+  css: ['~/assets/scss/main.scss'],
 
   server: {
     port: 3001,
