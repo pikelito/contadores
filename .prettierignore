@@ -5,4 +5,5 @@ node_modules
 .git
 .husky
 .vscode
+coverage
 package-lock.json
