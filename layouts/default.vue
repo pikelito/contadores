@@ -2,7 +2,9 @@
   <div class="default-layout">
     <LayoutAppHeader />
     <main class="default-layout__main">
-      <Nuxt />
+      <transition name="page" mode="out-in">
+        <Nuxt />
+      </transition>
     </main>
     <LayoutAppFooter />
   </div>
@@ -17,10 +19,11 @@
 <style lang="scss" scoped>
   .default-layout {
     @include flex($direction: column);
-    min-height: 100vh;
+    height: 100vh;
 
     &__main {
       flex-grow: 1;
+      overflow-y: auto;
       padding: map.get($spacings, 'sm');
 
       @include breakpoint('md') {
