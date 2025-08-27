@@ -18,11 +18,9 @@ export default {
 
   components: true,
 
-  buildModules: ['@nuxtjs/composition-api/module'],
+  modules: ['@nuxtjs/i18n'],
 
-  server: {
-    port: 3001,
-  },
+  buildModules: ['@nuxtjs/composition-api/module'],
 
   css: ['~/assets/scss/main.scss'],
 
@@ -36,5 +34,26 @@ export default {
         `,
       },
     },
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.js',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+        file: 'es.js',
+      },
+    ],
+    langDir: 'lang/',
+    defaultLocale: 'es',
+  },
+
+  server: {
+    port: 3001,
   },
 }
