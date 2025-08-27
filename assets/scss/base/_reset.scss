@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+
 *,
 *::before,
 *::after {
@@ -36,7 +39,7 @@ textarea {
 }
 
 a {
-  color: map-get($colors, 'primary');
+  color: map.get($colors, 'primary');
   text-decoration: none;
 
   &:hover {

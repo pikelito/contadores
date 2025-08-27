@@ -18,18 +18,23 @@ export default {
 
   components: true,
 
-  buildModules: ['@nuxtjs/composition-api/module', '@nuxtjs/style-resources'],
-
-  styleResources: {
-    scss: [
-      '~/assets/scss/abstracts/_variables.scss',
-      '~/assets/scss/abstracts/_mixins.scss',
-    ],
-  },
-
-  css: ['~/assets/scss/main.scss'],
+  buildModules: ['@nuxtjs/composition-api/module'],
 
   server: {
     port: 3001,
   },
-};
+
+  css: ['~/assets/scss/main.scss'],
+
+  build: {
+    loaders: {
+      scss: {
+        additionalData: `
+          @use "sass:map";
+          @use "~/assets/scss/abstracts/_variables.scss" as *;
+          @use "~/assets/scss/abstracts/_mixins.scss" as *;
+        `,
+      },
+    },
+  },
+}
