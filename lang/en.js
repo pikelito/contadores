@@ -1,9 +1,10 @@
 export default {
   HOME: {
     TITLE: 'Welcome to the project to manage counters',
+    BUTTON: 'Go to the counters page',
   },
   HEADER: {
-    title: 'Test ImageMaker',
+    TITLE: 'Test ImageMaker',
   },
   FOOTER: {
     TITLE: 'Developed by Miguel Angel Mariño Bayona',
