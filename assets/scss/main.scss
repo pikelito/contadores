@@ -1,4 +1,2 @@
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-
-@import 'base/reset';
+@use 'base/reset';
+@use 'transitions';

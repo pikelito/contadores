@@ -16,20 +16,46 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  plugins: [{ src: '~/plugins/vuex-persist.js', ssr: false }],
+
   components: true,
 
-  buildModules: ['@nuxtjs/composition-api/module', '@nuxtjs/style-resources'],
+  modules: ['@nuxtjs/i18n', 'nuxt-material-design-icons-iconfont'],
 
-  styleResources: {
-    scss: [
-      '~/assets/scss/abstracts/_variables.scss',
-      '~/assets/scss/abstracts/_mixins.scss',
-    ],
-  },
+  buildModules: ['@nuxtjs/composition-api/module'],
 
   css: ['~/assets/scss/main.scss'],
+
+  build: {
+    loaders: {
+      scss: {
+        additionalData: `
+          @use "sass:map";
+          @use "~/assets/scss/abstracts/_variables.scss" as *;
+          @use "~/assets/scss/abstracts/_mixins.scss" as *;
+        `,
+      },
+    },
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.js',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+        file: 'es.js',
+      },
+    ],
+    langDir: 'lang/',
+    defaultLocale: 'es',
+  },
 
   server: {
     port: 3001,
   },
-};
+}

@@ -1,6 +1,9 @@
+@use 'sass:map';
+@use 'variables' as *;
+
 @mixin breakpoint($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
@@ -8,12 +11,7 @@
   }
 }
 
-@mixin flex(
-  $direction: row,
-  $justify: flex-start,
-  $align: stretch,
-  $wrap: nowrap
-) {
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -28,32 +26,32 @@
 }
 
 @mixin font-size($size) {
-  @if map-has-key($font-sizes, $size) {
-    font-size: map-get($font-sizes, $size);
+  @if map.has-key($font-sizes, $size) {
+    font-size: map.get($font-sizes, $size);
   } @else {
     @warn "No existe el tamaño de fuente: #{$size}.";
   }
 }
 
 @mixin spacing($property, $size) {
-  @if map-has-key($spacings, $size) {
-    #{$property}: map-get($spacings, $size);
+  @if map.has-key($spacings, $size) {
+    #{$property}: map.get($spacings, $size);
   } @else {
     @warn "No existe el espaciado: #{$size}.";
   }
 }
 
 @mixin color($color-name) {
-  @if map-has-key($colors, $color-name) {
-    color: map-get($colors, $color-name);
+  @if map.has-key($colors, $color-name) {
+    color: map.get($colors, $color-name);
   } @else {
     @warn "No existe el color: #{$color-name}.";
   }
 }
 
 @mixin bg-color($color-name) {
-  @if map-has-key($colors, $color-name) {
-    background-color: map-get($colors, $color-name);
+  @if map.has-key($colors, $color-name) {
+    background-color: map.get($colors, $color-name);
   } @else {
     @warn "No existe el color: #{$color-name}.";
   }

@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.34.0",
+    "@nuxtjs/i18n": "^7.3.1",
     "nuxt": "^2.17.3",
+    "nuxt-material-design-icons-iconfont": "^1.0.2",
     "vue": "^2.7.14",
     "vuex": "^3.6.2"
   },
