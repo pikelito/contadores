@@ -10,7 +10,8 @@ export default {
     TITLE: 'Desarrollado por Miguel Angel Mariño Bayona',
   },
   COUNTER: {
-    ADD_NEW_COUNTER: 'Agregar nuevo contador',
+    NEW: 'Nuevo',
+    ADD_NEW_COUNTER: 'Crear contador',
     NAME: 'Nombre',
     NAME_PLACEHOLDER: 'Escribe el nombre del contador',
     VALUE: 'Valor',

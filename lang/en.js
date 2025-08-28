@@ -10,7 +10,8 @@ export default {
     TITLE: 'Developed by Miguel Angel Mariño Bayona',
   },
   COUNTER: {
-    ADD_NEW_COUNTER: 'Add new counter',
+    NEW: 'New',
+    ADD_NEW_COUNTER: 'Add counter',
     NAME: 'Name',
     NAME_PLACEHOLDER: 'Write the counter name',
     VALUE: 'Value',
