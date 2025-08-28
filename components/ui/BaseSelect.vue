@@ -99,7 +99,7 @@
 
     &__select {
       width: 100%;
-      padding: map.get($spacings, 'xs') map.get($spacings, 'sm');
+      padding: map.get($spacings, 'xs') map.get($spacings, 'md');
       border: 1px solid map.get($colors, 'border');
       border-radius: map.get($border-radius, 'base');
       font-size: map.get($font-sizes, 'base');
@@ -118,7 +118,7 @@
     &__arrow {
       position: absolute;
       top: 50%;
-      right: map.get($spacings, 'md');
+      right: map.get($spacings, 'sm');
       transform: translateY(-50%);
       width: 0;
       height: 0;

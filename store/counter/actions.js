@@ -110,7 +110,9 @@ export default {
    * @param {number} filters.filterValue - Value to filter by
    */
   updateFilters({ commit }, filters) {
-    commit(MUTATIONS.UPDATE_FILTERS, filters)
+    let newFilterValue = getCounterValueMin(filters.filterValue)
+    newFilterValue = getCounterValueMax(newFilterValue)
+    commit(MUTATIONS.UPDATE_FILTERS, { ...filters, filterValue: newFilterValue })
   },
 
   /**

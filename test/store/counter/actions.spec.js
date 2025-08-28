@@ -165,16 +165,38 @@ describe('store/counter/actions', () => {
   })
 
   describe('updateFilters', () => {
-    it('should commit UPDATE_FILTERS with the provided filters configuration', () => {
-      const filters = {
+    it('should commit UPDATE_FILTERS with adjusted filter value within bounds', () => {
+      validations.getCounterValueMin.mockImplementation((value) => (value < 0 ? 0 : value))
+      validations.getCounterValueMax.mockImplementation((value) => (value > 20 ? 20 : value))
+
+      const normalFilters = {
         filterBy: FILTER_OPTIONS.BY.GREATER_THAN,
         filterValue: 5,
       }
+      actions.updateFilters({ commit }, normalFilters)
+      expect(commit).toHaveBeenCalledWith(MUTATIONS.UPDATE_FILTERS, normalFilters)
 
-      actions.updateFilters({ commit }, filters)
+      const belowMinFilters = {
+        filterBy: FILTER_OPTIONS.BY.LESS_THAN,
+        filterValue: -5,
+      }
+      actions.updateFilters({ commit }, belowMinFilters)
+      expect(commit).toHaveBeenCalledWith(MUTATIONS.UPDATE_FILTERS, {
+        ...belowMinFilters,
+        filterValue: 0,
+      })
 
-      expect(commit).toHaveBeenCalledTimes(1)
-      expect(commit).toHaveBeenCalledWith(MUTATIONS.UPDATE_FILTERS, filters)
+      const aboveMaxFilters = {
+        filterBy: FILTER_OPTIONS.BY.GREATER_THAN,
+        filterValue: 25,
+      }
+      actions.updateFilters({ commit }, aboveMaxFilters)
+      expect(commit).toHaveBeenCalledWith(MUTATIONS.UPDATE_FILTERS, {
+        ...aboveMaxFilters,
+        filterValue: 20,
+      })
+
+      expect(commit).toHaveBeenCalledTimes(3)
     })
   })
 
