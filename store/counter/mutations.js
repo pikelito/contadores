@@ -61,6 +61,15 @@ export default {
    * @param {number} filters.filterValue - Filter value
    */
   [MUTATIONS.UPDATE_FILTERS](state, filters) {
-    state.filters = filters
+    state.filters = { ...state.filters, ...filters }
+  },
+
+  /**
+   * Replaces the entire counters array.
+   * @param {Object} state - The current state.
+   * @param {Array} counters - The new array of counters.
+   */
+  [MUTATIONS.REPLACE_COUNTERS](state, counters) {
+    state.counters = counters
   },
 }

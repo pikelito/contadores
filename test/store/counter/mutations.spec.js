@@ -107,4 +107,37 @@ describe('store/counter/mutations', () => {
       expect(state.filters).toEqual(newFilters)
     })
   })
+
+  describe(MUTATIONS.REPLACE_COUNTERS, () => {
+    it('should replace the entire counters array with the new one', () => {
+      const state = {
+        counters: [
+          { id: 1, name: 'Old Counter 1', value: 10 },
+          { id: 2, name: 'Old Counter 2', value: 20 },
+        ],
+      }
+      const newCounters = [
+        { id: 3, name: 'New Counter 1', value: 5 },
+        { id: 4, name: 'New Counter 2', value: 15 },
+      ]
+
+      mutations[MUTATIONS.REPLACE_COUNTERS](state, newCounters)
+
+      expect(state.counters).toEqual(newCounters)
+      expect(state.counters).toHaveLength(2)
+      expect(state.counters[0].name).not.toContain('Old')
+    })
+
+    it('should be able to handle an empty array', () => {
+      const state = {
+        counters: [{ id: 1, name: 'Old Counter 1', value: 10 }],
+      }
+      const newCounters = []
+
+      mutations[MUTATIONS.REPLACE_COUNTERS](state, newCounters)
+
+      expect(state.counters).toEqual([])
+      expect(state.counters).toHaveLength(0)
+    })
+  })
 })

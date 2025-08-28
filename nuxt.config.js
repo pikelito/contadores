@@ -16,6 +16,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  plugins: [{ src: '~/plugins/vuex-persist.js', ssr: false }],
+
   components: true,
 
   modules: ['@nuxtjs/i18n', 'nuxt-material-design-icons-iconfont'],
