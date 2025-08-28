@@ -1,0 +1,12 @@
+.list-fall-enter-active,
+.list-fall-leave-active {
+  transition: all 0.5s ease;
+}
+.list-fall-enter,
+.list-fall-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.list-fall-move {
+  transition: transform 0.5s ease;
+}

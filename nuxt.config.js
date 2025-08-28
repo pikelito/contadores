@@ -18,7 +18,7 @@ export default {
 
   components: true,
 
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', 'nuxt-material-design-icons-iconfont'],
 
   buildModules: ['@nuxtjs/composition-api/module'],
 
