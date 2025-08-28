@@ -27,6 +27,8 @@ export default {
     NOT_FOUND: 'The counter does not exist',
     NO_COUNTERS: 'No counters, add one to start',
     NO_COUNTERS_FILTERED: 'No counters match the filter',
+    TOTAL_SUM: 'Total sum of values',
+    TOTAL_COUNTERS: 'Total counters',
   },
   SAVING: 'Saving...',
   SAVE: 'Save',

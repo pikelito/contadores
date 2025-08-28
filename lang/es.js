@@ -27,6 +27,8 @@ export default {
     NOT_FOUND: 'El contador no existe',
     NO_COUNTERS: 'No hay contadores, agrega uno para empezar',
     NO_COUNTERS_FILTERED: 'No hay contadores que coincidan con el filtro',
+    TOTAL_SUM: 'Suma total de valores',
+    TOTAL_COUNTERS: 'Total de contadores',
   },
   SAVING: 'Guardando...',
   SAVE: 'Guardar',
