@@ -1,5 +1,14 @@
 <template>
   <div class="counter-filters">
+    <UiBaseGroup :label="$t('COUNTER.SEARCH')">
+      <UiBaseInput
+        id="search-query"
+        :value="searchQuery"
+        :placeholder="$t('COUNTER.SEARCH_PLACEHOLDER')"
+        @input="updateSearchQuery"
+      />
+      <UiBaseButton variant="error" @click="updateSearchQuery('')">X</UiBaseButton>
+    </UiBaseGroup>
     <UiBaseGroup :label="$t('COUNTER.SORT_BY')">
       <UiBaseSelect
         id="sort-by"
@@ -27,6 +36,7 @@
         type="number"
         :value="filters.filterValue"
         placeholder="0"
+        class="counter-filters__filter-value"
         @input="updateFilterValue"
       />
       <UiBaseButton variant="error" @click="clearFilters">X</UiBaseButton>
@@ -44,6 +54,7 @@
       const {
         filters,
         sorting,
+        searchQuery,
         sortOptions,
         orderOptions,
         filterOptions,
@@ -51,12 +62,14 @@
         updateSortOrder,
         updateFilterBy,
         updateFilterValue,
+        updateSearchQuery,
         clearFilters,
       } = useCounterFilters()
 
       return {
         filters,
         sorting,
+        searchQuery,
         sortOptions,
         orderOptions,
         filterOptions,
@@ -64,6 +77,7 @@
         updateSortOrder,
         updateFilterBy,
         updateFilterValue,
+        updateSearchQuery,
         clearFilters,
       }
     },
@@ -74,14 +88,18 @@
   .counter-filters {
     display: flex;
     flex-direction: column;
-    gap: map.get($spacings, 'md');
+    gap: map.get($spacings, 'xs');
     align-items: stretch;
     width: 100%;
 
-    @include breakpoint('md') {
+    @include breakpoint('lg') {
       flex-direction: row;
       align-items: flex-start;
-      gap: map.get($spacings, 'lg');
+      gap: map.get($spacings, 'sm');
+    }
+
+    &__filter-value {
+      width: 80px !important;
     }
   }
 </style>

@@ -140,4 +140,15 @@ describe('store/counter/mutations', () => {
       expect(state.counters).toHaveLength(0)
     })
   })
+
+  describe(MUTATIONS.UPDATE_SEARCH_QUERY, () => {
+    it('should update the searchQuery in the state', () => {
+      const state = { searchQuery: '' }
+      const newQuery = 'test query'
+
+      mutations[MUTATIONS.UPDATE_SEARCH_QUERY](state, newQuery)
+
+      expect(state.searchQuery).toBe(newQuery)
+    })
+  })
 })

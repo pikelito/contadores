@@ -13,14 +13,22 @@ export default {
    * @returns {Array} Filtered array of counters
    */
   filteredCounters: (state) => {
-    if (!state.filters.filterBy) return state.counters
+    const { filterBy, filterValue } = state.filters
+    const query = state.searchQuery.trim().toLowerCase()
+    let counters = state.counters
 
-    return state.counters.filter((counter) => {
-      switch (state.filters.filterBy) {
+    if (query) {
+      counters = counters.filter((counter) => counter.name.toLowerCase().includes(query))
+    }
+
+    if (!filterBy) return counters
+
+    return counters.filter((counter) => {
+      switch (filterBy) {
         case FILTER_OPTIONS.BY.GREATER_THAN:
-          return counter.value > state.filters.filterValue
+          return counter.value > filterValue
         case FILTER_OPTIONS.BY.LESS_THAN:
-          return counter.value < state.filters.filterValue
+          return counter.value < filterValue
         default:
           return true
       }

@@ -8,8 +8,10 @@ export const useCounterFilters = () => {
   const {
     filters,
     sorting,
+    searchQuery,
     updateFilters,
     updateSorting,
+    updateSearchQuery,
     clearFilters: clearFiltersCounters,
   } = useCounters()
 
@@ -57,6 +59,7 @@ export const useCounterFilters = () => {
   return {
     filters,
     sorting,
+    searchQuery,
     sortOptions,
     orderOptions,
     filterOptions,
@@ -64,6 +67,7 @@ export const useCounterFilters = () => {
     updateSortOrder,
     updateFilterBy,
     updateFilterValue,
+    updateSearchQuery,
     clearFilters,
   }
 }

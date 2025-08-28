@@ -5,54 +5,71 @@ import { FILTER_OPTIONS, SORT_OPTIONS } from '@/store/counter/constants'
 describe('store/counter/getters', () => {
   describe('filteredCounters', () => {
     const counters = [
-      { id: 1, name: 'Counter 1', value: 5 },
-      { id: 2, name: 'Counter 2', value: 10 },
-      { id: 3, name: 'Counter 3', value: 15 },
+      { id: 1, name: 'Apple Counter', value: 5 },
+      { id: 2, name: 'Banana Counter', value: 10 },
+      { id: 3, name: 'Apple Banana', value: 15 },
     ]
+    const baseState = {
+      counters,
+      filters: { filterBy: FILTER_OPTIONS.BY.NONE, filterValue: 0 },
+      searchQuery: '',
+    }
 
-    it('should return all counters when no filter is applied', () => {
-      const state = {
-        counters,
-        filters: { filterBy: FILTER_OPTIONS.BY.NONE, filterValue: 0 },
-      }
-
-      const result = getters.filteredCounters(state)
-
+    it('should return all counters when no filter or search is applied', () => {
+      const result = getters.filteredCounters(baseState)
       expect(result).toEqual(counters)
+    })
+
+    it('should filter by search query', () => {
+      const state = { ...baseState, searchQuery: 'apple' }
+      const result = getters.filteredCounters(state)
+      expect(result).toEqual([counters[0], counters[2]])
     })
 
     it('should filter counters greater than value', () => {
       const state = {
-        counters,
+        ...baseState,
         filters: {
           filterBy: FILTER_OPTIONS.BY.GREATER_THAN,
           filterValue: 7,
         },
       }
-
       const result = getters.filteredCounters(state)
-
-      expect(result).toEqual([
-        { id: 2, name: 'Counter 2', value: 10 },
-        { id: 3, name: 'Counter 3', value: 15 },
-      ])
+      expect(result).toEqual([counters[1], counters[2]])
     })
 
     it('should filter counters less than value', () => {
       const state = {
-        counters,
+        ...baseState,
         filters: {
           filterBy: FILTER_OPTIONS.BY.LESS_THAN,
           filterValue: 12,
         },
       }
-
       const result = getters.filteredCounters(state)
+      expect(result).toEqual([counters[0], counters[1]])
+    })
 
-      expect(result).toEqual([
-        { id: 1, name: 'Counter 1', value: 5 },
-        { id: 2, name: 'Counter 2', value: 10 },
-      ])
+    it('should combine search query and value filters', () => {
+      const state = {
+        ...baseState,
+        searchQuery: 'banana',
+        filters: {
+          filterBy: FILTER_OPTIONS.BY.GREATER_THAN,
+          filterValue: 12,
+        },
+      }
+      const result = getters.filteredCounters(state)
+      expect(result).toEqual([counters[2]])
+    })
+
+    it('should return an empty array if no counters match filters', () => {
+      const state = {
+        ...baseState,
+        searchQuery: 'cherry',
+      }
+      const result = getters.filteredCounters(state)
+      expect(result).toEqual([])
     })
   })
 

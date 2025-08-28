@@ -30,6 +30,8 @@ export default {
     NO_COUNTERS_FILTERED: 'No hay contadores que coincidan con el filtro',
     TOTAL_SUM: 'Suma total de valores',
     TOTAL_COUNTERS: 'Total de contadores',
+    SEARCH: 'Buscar',
+    SEARCH_PLACEHOLDER: 'Buscar por nombre',
   },
   SAVING: 'Guardando...',
   SAVE: 'Guardar',

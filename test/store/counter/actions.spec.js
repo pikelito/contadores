@@ -211,4 +211,14 @@ describe('store/counter/actions', () => {
       })
     })
   })
+
+  describe('updateSearchQuery', () => {
+    it('should commit UPDATE_SEARCH_QUERY with the provided query', () => {
+      const query = 'search term'
+      actions.updateSearchQuery({ commit }, query)
+
+      expect(commit).toHaveBeenCalledTimes(1)
+      expect(commit).toHaveBeenCalledWith(MUTATIONS.UPDATE_SEARCH_QUERY, query)
+    })
+  })
 })

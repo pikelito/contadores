@@ -30,6 +30,8 @@ export default {
     NO_COUNTERS_FILTERED: 'No counters match the filter',
     TOTAL_SUM: 'Total sum of values',
     TOTAL_COUNTERS: 'Total counters',
+    SEARCH: 'Search',
+    SEARCH_PLACEHOLDER: 'Search by name',
   },
   SAVING: 'Saving...',
   SAVE: 'Save',

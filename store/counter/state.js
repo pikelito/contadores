@@ -21,6 +21,7 @@ export default () => ({
     sortBy: SORT_OPTIONS.BY.NAME,
     sortOrder: SORT_OPTIONS.ORDER.ASC,
   },
+  searchQuery: '',
   filters: {
     filterBy: FILTER_OPTIONS.BY.NONE,
     filterValue: 0,

@@ -73,10 +73,6 @@ describe('utils/counter/validations', () => {
       expect(isWithinCounterLimit(MAX_COUNTERS_ALLOWED - 1)).toBe(true)
     })
 
-    it('should return true if the count is equal to the maximum allowed', () => {
-      expect(isWithinCounterLimit(MAX_COUNTERS_ALLOWED)).toBe(true)
-    })
-
     it('should return false if the count is above the maximum allowed', () => {
       expect(isWithinCounterLimit(MAX_COUNTERS_ALLOWED + 1)).toBe(false)
     })

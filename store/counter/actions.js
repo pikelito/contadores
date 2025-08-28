@@ -125,4 +125,13 @@ export default {
       filterValue: 0,
     })
   },
+
+  /**
+   * Update the search query
+   * @param {ActionContext} context - Vuex action context
+   * @param {string} query - The new search query
+   */
+  updateSearchQuery({ commit }, query) {
+    commit(MUTATIONS.UPDATE_SEARCH_QUERY, query)
+  },
 }

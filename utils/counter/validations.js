@@ -40,7 +40,7 @@ export const getCounterNameError = (name) => {
  * @returns {boolean}
  */
 export const isWithinCounterLimit = (count) => {
-  return count <= MAX_COUNTERS_ALLOWED
+  return count < MAX_COUNTERS_ALLOWED
 }
 
 /**

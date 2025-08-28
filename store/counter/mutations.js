@@ -72,4 +72,13 @@ export default {
   [MUTATIONS.REPLACE_COUNTERS](state, counters) {
     state.counters = counters
   },
+
+  /**
+   * Sets the search query string.
+   * @param {Object} state - The current state.
+   * @param {string} query - The search query.
+   */
+  [MUTATIONS.UPDATE_SEARCH_QUERY](state, query) {
+    state.searchQuery = query
+  },
 }
