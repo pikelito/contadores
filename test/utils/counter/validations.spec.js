@@ -9,7 +9,9 @@ import {
   getCounterValueMax,
   MIN_COUNTER_VALUE,
   MAX_COUNTER_VALUE,
+  getCounterNameError,
 } from '@/utils/counter/validations'
+import { ERROR_CODES } from '@/store/counter/constants'
 
 describe('utils/counter/validations', () => {
   describe('isCounterNameValid', () => {
@@ -45,6 +47,24 @@ describe('utils/counter/validations', () => {
 
     it('should return false for a non-string type', () => {
       expect(isCounterNameValid(123)).toBe(false)
+    })
+  })
+
+  describe('getCounterNameError', () => {
+    it('should return NAME_INVALID for empty or invalid names', () => {
+      expect(getCounterNameError('')).toBe(ERROR_CODES.NAME_INVALID)
+      expect(getCounterNameError('   ')).toBe(ERROR_CODES.NAME_INVALID)
+      expect(getCounterNameError(null)).toBe(ERROR_CODES.NAME_INVALID)
+      expect(getCounterNameError(undefined)).toBe(ERROR_CODES.NAME_INVALID)
+    })
+
+    it('should return NAME_INVALID_LENGTH for names that are too long', () => {
+      const longName = 'a'.repeat(MAX_NAME_LENGTH + 1)
+      expect(getCounterNameError(longName)).toBe(ERROR_CODES.NAME_INVALID_LENGTH)
+    })
+
+    it('should return undefined for a valid name', () => {
+      expect(getCounterNameError('Valid Name')).toBeUndefined()
     })
   })
 

@@ -1,3 +1,5 @@
+import { ERROR_CODES } from '@/store/counter/constants'
+
 export const MAX_NAME_LENGTH = 20
 export const MIN_COUNTER_VALUE = 0
 export const MAX_COUNTER_VALUE = 20
@@ -16,6 +18,20 @@ export const isCounterNameValid = (name) => {
     return false
   }
   return true
+}
+
+/**
+ * Get the error message for the counter name
+ * @param {string} name - The counter name to validate.
+ * @returns {string}
+ */
+export const getCounterNameError = (name) => {
+  if (!name || typeof name !== 'string' || name.trim().length === 0) {
+    return ERROR_CODES.NAME_INVALID
+  }
+  if (name.length > MAX_NAME_LENGTH) {
+    return ERROR_CODES.NAME_INVALID_LENGTH
+  }
 }
 
 /**

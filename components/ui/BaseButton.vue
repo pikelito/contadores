@@ -62,5 +62,11 @@
         }
       }
     }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: map.get($colors, 'light');
+    }
   }
 </style>
